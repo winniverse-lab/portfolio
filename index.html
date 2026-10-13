@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winnie Choo — Finance Automation Projects</title>
+<meta name="description" content="A portfolio of finance and treasury automation projects: reconciliations, balance trackers, dashboards and reporting tools.">
+<style>
+  :root {
+    --bg: #f7f6f2; --surface: #ffffff; --text: #1d2420; --muted: #5e6a63;
+    --accent: #1f6f5c; --accent-soft: #e3f1ed; --border: #e2e0d8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101513; --surface: #171e1b; --text: #eaf0ed; --muted: #9aa8a0;
+      --accent: #5cc8ad; --accent-soft: #1b2f29; --border: #26312c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  header.top { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 700; letter-spacing: .2px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 15px; }
+  nav a:hover { color: var(--accent); }
+  .hero { padding: 64px 0 40px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1.2px; }
+  h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.1; margin: 12px 0 18px; max-width: 18ch; }
+  .lede { color: var(--muted); font-size: 19px; max-width: 60ch; margin: 0; }
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .stat { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; }
+  section { padding: 40px 0; }
+  h2 { font-size: 26px; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filters button {
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
+    border-radius: 999px; padding: 6px 16px; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .card h3 { margin: 0; font-size: 19px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .cat { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+  .points { margin: 4px 0 0; padding-left: 18px; color: var(--text); font-size: 14.5px; }
+  .points li { margin: 3px 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .tags span { font-size: 12px; border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; color: var(--muted); }
+  .card.hidden { display: none; }
+  .about { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+  .about p { margin: 0 0 12px; max-width: 70ch; }
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border); margin-top: 40px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Winnie Choo</div>
+    <nav><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Finance &amp; Treasury Automation</div>
+    <h1>Turning daily finance grunt work into tools that run themselves.</h1>
+    <p class="lede">I build reconciliations, balance trackers and reporting tools that replace manual spreadsheet work with fast, auditable, repeatable processes.</p>
+    <div class="stats">
+      <span class="stat">10 projects shipped</span>
+      <span class="stat">Fiat + crypto</span>
+      <span class="stat">Google Apps Script · Python · JavaScript</span>
+    </div>
+  </div>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="sub">Client and counterparty names are intentionally left out.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>I work where finance operations meet software. Most of what I build starts as a painful daily or monthly process: matching thousands of transactions across systems, chasing balance differences, or consolidating journals from many sources.</p>
+      <p>My approach: automate the matching, surface only the exceptions, and leave a clear audit trail so a reviewer can trust the result in minutes.</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <!-- TODO: replace with your real contact links -->
+    Get in touch: <a href="mailto:your-email@example.com">your-email@example.com</a> · <a href="#">LinkedIn</a> · <a href="#">GitHub</a>
+  </footer>
+</div>
+
+<script>
+const projects = [
+  {
+    title: "Payments Reconciliation & P&L Pipeline",
+    cat: "Reconciliation",
+    desc: "Matches payment-processor transactions to order records and liquidity-provider trades, computes profit and loss per order, and runs automatically from incoming email statements.",
+    points: ["Three-way match on a shared quote ID, with P&L by order and by currency", "Detects, parses and reconciles statements arriving by email across several entities", "Notifications and a tracker sheet flag only what needs attention"],
+    tags: ["Apps Script", "Gmail", "Python", "Colab"]
+  },
+  {
+    title: "Daily Crypto & Fiat Reconciliation Suite",
+    cat: "Reconciliation",
+    desc: "The full daily close for crypto and fiat flows: an offline browser workbench, a merchant-to-master roll-up and order-level bank matching for stablecoin sells.",
+    points: ["Opening balance + movements - fees must equal closing balance, per account and merchant", "Master totals are always a straight roll-up of merchant detail, then sanity-checked", "Offline single file with a strict Content-Security-Policy, plus a runbook and checklist"],
+    tags: ["Apps Script", "HTML", "JavaScript", "Excel"]
+  },
+  {
+    title: "Exchange Convert Two-Way Reconciliation",
+    cat: "Reconciliation",
+    desc: "Matches an order-management export against exchange position movements using a four-step cascade of matching rules.",
+    points: ["Exact, truncated, off-chain and pickup match paths", "Handles CSV and XLSX inputs, old and new formats", "Separate tabs for matched, unmatched and amount mismatches"],
+    tags: ["Apps Script", "Data matching"]
+  },
+  {
+    title: "Reconciliation Mobile Bot",
+    cat: "Automation",
+    desc: "A chat bot that lets the team kick off and check reconciliation workflows from their phones.",
+    points: ["Conversational flows with inline buttons", "Secrets kept out of code via environment config"],
+    tags: ["Python", "Telegram API"]
+  },
+  {
+    title: "Custodial Balance Puller",
+    cat: "Balances",
+    desc: "Pulls wallet balances from a custody provider in batches with a work queue, writing a time-stamped master sheet.",
+    points: ["Queue and batch design stays within API limits", "Skips zero balances to keep data clean", "Every run is time-stamped for audit"],
+    tags: ["Apps Script", "REST API"]
+  },
+  {
+    title: "Crypto Balance Dashboard",
+    cat: "Balances",
+    desc: "Consolidates balances from exchanges, custody providers and multisig wallets into one live view in Google Sheets.",
+    points: ["Multiple sources behind one sheet writer", "Setup guide for the team"],
+    tags: ["Apps Script", "APIs"]
+  },
+  {
+    title: "ChainLens — On-Chain Transaction Fetcher",
+    cat: "Balances",
+    desc: "A Google Sheets tool that fetches on-chain transactions across multiple networks and detects swaps by correlating inflows and outflows.",
+    points: ["Up to 10 wallets per business unit", "Native, token and internal transfers", "Per-wallet tabs with swap detection"],
+    tags: ["Apps Script", "Etherscan API", "Multi-chain"]
+  },
+  {
+    title: "Balance Tracker with Reconciliation API",
+    cat: "Balances",
+    desc: "A small full-stack app: a Flask API that stores balances and reconciles them, with a lightweight web frontend.",
+    points: ["REST endpoints for reading and adding balances", "Dedicated reconciliation module", "Simple browser UI"],
+    tags: ["Python", "Flask", "JavaScript"]
+  },
+  {
+    title: "Treasury Management Suite",
+    cat: "Tools",
+    desc: "A set of browser-based treasury tools, including a file processor and a crypto journal generator, that run locally.",
+    points: ["Crypto journal generation from raw exports", "File processing without leaving the browser", "Reusable template for new tools"],
+    tags: ["HTML", "JavaScript", "Local-first"]
+  },
+  {
+    title: "Monthly Journal Consolidator",
+    cat: "Reporting",
+    desc: "Collects journal files from email, including Drive-share notifications, and consolidates them into one master sheet for monthly reporting.",
+    points: ["Incremental de-duplication, so only new rows are appended", "Fixed headers and a source column per row", "Optional daily trigger"],
+    tags: ["Apps Script", "Gmail", "Drive", "Python"]
+  }
+];
+
+const cats = ["All", ...new Set(projects.map(p => p.cat))];
+const filters = document.getElementById("filters");
+const grid = document.getElementById("grid");
+
+grid.innerHTML = projects.map(p => `
+  <article class="card" data-cat="${p.cat}">
+    <div class="cat">${p.cat}</div>
+    <h3>${p.title}</h3>
+    <p>${p.desc}</p>
+    <ul class="points">${p.points.map(x => `<li>${x}</li>`).join("")}</ul>
+    <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+  </article>`).join("");
+
+filters.innerHTML = cats.map((c, i) =>
+  `<button type="button" aria-pressed="${i === 0}" data-cat="${c}">${c}</button>`).join("");
+
+filters.addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  filters.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  grid.querySelectorAll(".card").forEach(c =>
+    c.classList.toggle("hidden", b.dataset.cat !== "All" && c.dataset.cat !== b.dataset.cat));
+});
+</script>
+</body>
+</html>
