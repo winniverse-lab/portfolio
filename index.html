@@ -31,6 +31,10 @@
   .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1.2px; }
   h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.1; margin: 12px 0 18px; max-width: 18ch; }
   .lede { color: var(--muted); font-size: 19px; max-width: 60ch; margin: 0; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .btn { display: inline-block; padding: 10px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--accent); }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { color: var(--accent); }
   .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
   .stat { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; }
   section { padding: 40px 0; }
@@ -72,6 +76,10 @@
     <div class="eyebrow">Finance &amp; Treasury Automation</div>
     <h1>Turning daily finance grunt work into tools that run themselves.</h1>
     <p class="lede">I build reconciliations, balance trackers and reporting tools that replace manual spreadsheet work with fast, auditable, repeatable processes.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:winniecwx@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/winnie-choo-770228350/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
     <div class="stats">
       <span class="stat">10 projects shipped</span>
       <span class="stat">Fiat + crypto</span>
@@ -95,8 +103,7 @@
   </section>
 
   <footer id="contact">
-    <!-- TODO: replace with your real contact links -->
-    Get in touch: <a href="mailto:your-email@example.com">your-email@example.com</a> · <a href="#">LinkedIn</a> · <a href="#">GitHub</a>
+    Get in touch: <a href="mailto:winniecwx@gmail.com">winniecwx@gmail.com</a> · <a href="https://www.linkedin.com/in/winnie-choo-770228350/" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </div>
 
